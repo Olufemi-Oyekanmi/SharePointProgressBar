@@ -1,0 +1,151 @@
+<div class="html">
+    <head>
+        <style>
+            .card{
+               
+                margin:20px;
+                
+            }
+            .progress {
+                margin:20px auto;
+                padding:0;
+                width:90%;
+                height:30px;
+                overflow:hidden;
+                background:#e5e5e5;
+                border-radius: 15px;
+                border: 1px solid grey;
+            }
+  
+            .bar {
+                position:relative;
+                float:left;
+                min-width:1%;
+                height:100%;
+                background:cornflowerblue;
+                
+
+            }
+  
+            .percent {    
+                position:absolute;
+                top:50%;
+                left:95%;
+                transform:translate(-50%,-50%);
+                margin:0;
+                font-family:tahoma,arial,helvetica;
+                font-size:12px;
+                color:black;
+               
+            }
+
+            .btn{
+               
+                text-transform: uppercase;
+                padding: 5px;               
+                font-style: normal;
+                letter-spacing: 0.1em;
+                color: #ffffff;              
+                margin:20px auto;
+                background: #4976BA;
+                border-radius:3px;
+                border-color: #4976BA;
+                color:white;
+                font-family: 'Source Sans Pro';
+                width: 120px
+            }
+
+            .btn:hover {
+                border: 1px solid #4976BA !important;
+                color: #4976BA;
+                background: #fff;
+                border-radius: 2px;
+                padding: 5px
+            }
+
+            #green{
+                background:green;
+            }
+            #red{
+                background:red;
+            }
+            #white{
+                background:white;
+            }
+            #blue{
+                background:cornflowerblue;
+            }
+            #yellow{
+                background:yellow;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="card">
+        <div class="progress">
+            <div class="bar" id="green" style="width:50%">
+                <p class="percent">50%</p>
+            </div>
+           
+        </div>    
+                
+        <div class="progress">
+            <div class="bar" id="red" style="width:50%">
+                <p class="percent">50%</p>
+            </div>       
+        </div>
+
+        <div class="progress">
+            <div class="bar" id="white" style="width:50%">
+                <p class="percent">50%</p>
+            </div>       
+        </div>
+
+        <div class="progress">
+            <div class="bar" id="blue" style="width:50%">
+                <p class="percent">50%</p>
+            </div>       
+        </div>
+
+        <div class="progress">
+            <div class="bar" id="yellow" style="width:50%">
+                <p class="percent">50%</p>
+            </div>       
+        </div>
+
+        <button class="btn" id="myBtn" onclick="move()">Finish</button>
+       </div>
+    
+
+   
+        <script>
+            function move() {
+                //disble button 
+                document.getElementById("myBtn").disabled = true;
+
+                let progressBar = document.getElementsByClassName('bar');
+                let percent = document.getElementsByClassName('percent');
+                var width = 50;
+                var id = setInterval(frame, 10);
+              
+                    function frame(){
+                        if (width >= 100) {
+                        clearInterval(id);
+                        } 
+                        else {
+                            width++; 
+                            
+                            for(var i =0; i<progressBar.length;i++){
+                                progressBar[i].style.width = width + '%'; 
+                                percent[i].innerHTML = "100%";
+                            }
+                        }
+                    }
+
+                    
+                  
+                
+            }
+        </script>
+    </body>
+</div>
